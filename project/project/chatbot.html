@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column; /* Stack elements vertically */
+            min-height: 100vh; /* Ensure full viewport height */
+            background-color: #f8f9fa;
+        }
+
+        .chat-container {
+            width: 100%;
+            max-width: 750px;
+            padding: 30px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+            margin: auto; /* Center horizontally */
+            margin-bottom: 20px; /* Space from bottom */
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .btn-back, .btn-primary {
+            background-color: #007bff;
+            color: white;
+            font-weight: bold;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-back:hover, .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+        .btn-back {
+            position: absolute;
+            left: 0;
+        }
+
+        .input-group {
+            display: flex;
+        }
+
+        .form-control {
+            flex: 1;
+        }
+
+        .btn-primary {
+            margin-left: 15px;
+        }
+
+        #response {
+            margin-top: 30px;
+            padding: 15px;
+            height: 200px;
+            overflow-y: auto;
+            background: #e9ecef;
+            border-radius: 7px;
+        }
+
+        #response h3 {
+            color: #333;
+            font-size: 1.5em;
+        }
+
+        #response strong {
+            color: #d9534f;
+        }
+
+        #response ul {
+            padding-left: 25px;
+        }
+
+        #response li {
+            margin-bottom: 10px;
+        }
+
+        .chat-container {
+            margin-top: auto; /* Push to bottom */
+            margin-bottom: 0;
+            transform: scale(); /* remove transform scale */
+        }
+    </style>
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <div class="chat-container">
+        <div class="header">
+            <button class="btn-back" onclick="goBack()">Back</button>
+            <h2>WSP ChatBot</h2>
+        </div>
+        <div class="input-group">
+            <input type="text" class="form-control" id="userInput" placeholder="Enter your question" />
+            <button class="btn btn-primary" onclick="sendMessage()">Ask!</button>
+        </div>
+        <div id="response"></div>
+    </div>
+    <script>
+//         function goBack() {
+//     window.location.href = 'index.html'; // Replace with your home page URL
+// }
+
+        async function sendMessage() {
+            const input = document.getElementById('userInput').value;
+            const responseDiv = document.getElementById('response');
+            if (!input) {
+                responseDiv.innerHTML = 'Please enter a message.';
+                return;
+            }
+            responseDiv.innerHTML = 'Loading...';
+            try {
+                const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+                    method: 'POST',
+                    headers: {
+                        Authorization: 'Bearer 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',
+                        'HTTP-Referer': 'https://www.sitename.com',
+                        'X-Title': 'SiteName',
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        model: 'google/gemini-2.0-pro-exp-02-05:free',
+                        messages: [{ role: 'user', content: input }],
+                    }),
+                });
+                const data = await response.json();
+                console.log(data);
+                const markdownText = data.choices?.[0]?.message?.content || 'No response received.';
+                responseDiv.innerHTML = marked.parse(markdownText);
+            } catch (error) {
+                responseDiv.innerHTML = 'Error: ' + error.message;
+            }
+        }
+    </script>
+</body>
+</html>
