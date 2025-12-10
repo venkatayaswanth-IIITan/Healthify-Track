@@ -203,5 +203,8 @@ For support, email your-email@example.com or open an issue in the repository.
 
 ---
 
-**Made with ❤️ using React + Vite + TypeScript**
+**Made with ❤️ using React + Vite + TypeScript**  
+
+PDF OF THIS PROJECT: https://drive.google.com/drive/folders/1Yd1rOa8myXCa-_nXdY6qYrL7t0q_yoN7?usp=sharing
+
 
