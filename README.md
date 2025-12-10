@@ -1,4 +1,5 @@
-# 🏥 Health Tracker App
+# 🏥 Health Tracker Website
+
 
 A modern, AI-powered health tracking application built with React, TypeScript, and Vite. Track your health metrics, get personalized insights, and chat with MEDICO AI for health-related questions.
 
@@ -203,3 +204,4 @@ For support, email your-email@example.com or open an issue in the repository.
 ---
 
 **Made with ❤️ using React + Vite + TypeScript**
+
