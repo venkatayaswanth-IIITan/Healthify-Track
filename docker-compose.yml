@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  healthtrack-app:
+    build: .
+    container_name: healthtrack
+    restart: always
+    ports:
+      - "80:80"
+    environment:
+      - PORT=80
+      - NODE_ENV=production
+      - MONGODB_URI=mongodb://mongo:27017/healthtracker
+    depends_on:
+      - mongo
+
+  mongo:
+    image: mongo:latest
+    container_name: healthtrack-mongo
+    restart: always
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+
+volumes:
+  mongo-data:
