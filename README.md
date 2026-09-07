@@ -1,210 +1,137 @@
-# 🏥 Health Tracker Website
+# 🏥 HealthTrack — Full Stack Healthcare Platform
 
-
-A modern, AI-powered health tracking application built with React, TypeScript, and Vite. Track your health metrics, get personalized insights, and chat with MEDICO AI for health-related questions.
-
-![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white)
-![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
-![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
-![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
-
-## ✨ Features
-
-- 📊 **Health Metrics Tracking** - Monitor your vital health statistics
-- 🤖 **AI-Powered Chatbot** - Get instant health advice from MEDICO AI
-- 💊 **Medication Management** - Track medications and schedules
-- 📱 **Responsive Design** - Works seamlessly on all devices
-- 🎨 **Modern UI** - Built with TailwindCSS and Bootstrap
-- ⚡ **Fast Performance** - Powered by Vite for lightning-fast development
-
-## 🚀 Quick Start
-
-### Prerequisites
-
-Before you begin, ensure you have the following installed:
-- [Node.js](https://nodejs.org/) (v16 or higher)
-- npm (comes with Node.js)
-
-### Installation
-
-1. **Clone the repository** (if not already done)
-   ```bash
-   git clone <repository-url>
-   cd Health-Track--2--main/project/project
-   ```
-
-2. **Install dependencies**
-   ```bash
-   npm install
-   ```
-
-3. **Start the development server**
-   ```bash
-   npm run dev
-   ```
-
-4. **Open your browser**
-   
-   Navigate to the URL shown in your terminal (typically `http://localhost:5173`)
-
-## 📜 Available Scripts
-
-| Command | Description |
-|---------|-------------|
-| `npm run dev` | Starts the development server with hot reload |
-| `npm run build` | Builds the app for production to the `dist` folder |
-| `npm run preview` | Preview the production build locally |
-| `npm run lint` | Run ESLint to check code quality |
-
-## 🛠️ Tech Stack
-
-### Frontend
-- **React 18.3** - UI library
-- **TypeScript 5.5** - Type-safe JavaScript
-- **Vite 5.4** - Build tool and dev server
-- **React Router DOM 6.30** - Client-side routing
-
-### Styling
-- **TailwindCSS 3.4** - Utility-first CSS framework
-- **Bootstrap 5.3** - Component library
-- **Lucide React** - Beautiful icon library
-
-### Backend Integration
-- **Axios** - HTTP client for API requests
-- **Express** - Backend server framework
-- **Mongoose** - MongoDB object modeling
-- **MySQL2** - MySQL database driver
-
-### AI Integration
-- **OpenRouter API** - Powers MEDICO AI chatbot
-- **Google Gemini 2.0** - Advanced language model
-
-## 📁 Project Structure
-
-```
-project/
-├── src/                    # Source files
-│   ├── components/        # React components
-│   ├── pages/            # Page components
-│   ├── assets/           # Images, fonts, etc.
-│   └── main.tsx          # Application entry point
-├── public/               # Static assets
-├── index.html           # HTML template
-├── package.json         # Dependencies and scripts
-├── vite.config.ts       # Vite configuration
-├── tailwind.config.js   # TailwindCSS configuration
-└── tsconfig.json        # TypeScript configuration
-```
-
-## 🤖 MEDICO AI Chatbot
-
-The application includes an AI-powered chatbot that can answer health-related questions. The chatbot uses:
-- **Model**: Google Gemini 2.0 Pro
-- **Provider**: OpenRouter API
-- **Features**: Markdown support, real-time responses
-
-### Using the Chatbot
-
-1. Navigate to the chatbot page
-2. Type your health-related question
-3. Click "Ask!" to get an AI-powered response
-4. Responses are formatted in Markdown for better readability
-
-## 🔧 Configuration
-
-### Environment Variables
-
-Create a `.env` file in the root directory if you need to customize API endpoints or keys:
-
-```env
-VITE_API_URL=your_api_url
-VITE_OPENROUTER_KEY=your_openrouter_key
-```
-
-### Vite Configuration
-
-The project uses Vite for fast development. Configuration can be found in `vite.config.ts`.
-
-## 📦 Building for Production
-
-To create a production build:
-
-```bash
-npm run build
-```
-
-The optimized files will be in the `dist` folder, ready to be deployed to any static hosting service.
-
-### Preview Production Build
-
-```bash
-npm run preview
-```
-
-## 🌐 Deployment
-
-This app can be deployed to various platforms:
-
-- **Vercel**: `vercel deploy`
-- **Netlify**: Drag and drop the `dist` folder
-- **GitHub Pages**: Use `gh-pages` package
-- **AWS S3**: Upload `dist` folder to S3 bucket
-
-## 🐛 Troubleshooting
-
-### Port Already in Use
-
-If port 5173 is already in use:
-```bash
-# Kill the process using the port (Windows)
-netstat -ano | findstr :5173
-taskkill /PID <PID> /F
-
-# Or specify a different port
-npm run dev -- --port 3000
-```
-
-### Dependencies Issues
-
-```bash
-# Clear npm cache and reinstall
-npm cache clean --force
-rm -rf node_modules package-lock.json
-npm install
-```
-
-## 🤝 Contributing
-
-Contributions are welcome! Please follow these steps:
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-## 📄 License
-
-This project is licensed under the MIT License.
-
-## 👥 Authors
-
-- Your Name - Initial work
-
-## 🙏 Acknowledgments
-
-- OpenRouter for AI API access
-- Google Gemini for the language model
-- The React and Vite communities
-
-## 📞 Support
-
-For support, email your-email@example.com or open an issue in the repository.
+A modern, AI-powered full-stack health and wellness tracking platform built with **React (TypeScript + Vite + Tailwind CSS)** and **Node.js (Express + MongoDB)**.
 
 ---
 
-**Made with ❤️ using React + Vite + TypeScript**  
+## 📁 Clean Project Structure
 
-PDF OF THIS PROJECT: https://drive.google.com/drive/folders/1Yd1rOa8myXCa-_nXdY6qYrL7t0q_yoN7?usp=sharing
+```
+OLABS-HACKATHON-HEALTH-CARE-PROJECT/
+├── client/                     # 🎨 Frontend Web Application (React + Vite)
+│   ├── src/
+│   │   ├── components/         # Modular React components
+│   │   │   ├── ChatBot.tsx     # MEDICO AI ChatBot (Google Gemini / OpenRouter)
+│   │   │   ├── Dashboard.tsx   # Health metrics & daily summary
+│   │   │   ├── DietPlan.tsx    # Budget & Calorie Diet Plan Generator
+│   │   │   ├── Goals.tsx       # Interactive health goals tracker
+│   │   │   ├── Profile.tsx     # User metrics, BMI calculation & dark mode
+│   │   │   ├── Rewards.tsx     # Gamified rewards redemption
+│   │   │   ├── Scanner.tsx     # Live camera food nutrition scanner
+│   │   │   ├── StepCounter.tsx # Live step counter & 7-day progress
+│   │   │   └── EmergencySOSButton.tsx # Emergency SOS quick-action
+│   │   ├── App.tsx             # Root routing and auth state
+│   │   ├── main.tsx            # Entry point
+│   │   └── index.css           # Tailwind design tokens
+│   ├── vercel.json             # Vercel deployment configuration (SPA routing)
+│   ├── package.json            # Frontend dependencies
+│   └── .env.example            # Client environment variables template
+│
+├── server/                     # ⚙️ Backend API Server (Node.js + Express + MongoDB)
+│   ├── models/
+│   │   └── User.js             # Mongoose User & Profile Schema
+│   ├── routes/
+│   │   ├── authRoutes.js       # Signup & Login API endpoints
+│   │   └── aiRoutes.js         # MEDICO AI proxy endpoint
+│   ├── server.js               # Express application with CORS & health check
+│   ├── render.yaml             # Render deployment blueprint
+│   ├── package.json            # Backend dependencies
+│   └── .env.example            # Server environment variables template
+│
+├── package.json                # Unified monorepo scripts
+├── .gitignore                  # Global Git ignore rules
+└── README.md                   # Documentation & Deployment Guide
+```
 
+---
 
+## 🚀 Quick Start (Local Development)
+
+### 1. Prerequisites
+- [Node.js](https://nodejs.org/) (v18 or higher recommended)
+- `npm` (bundled with Node.js)
+
+### 2. Install Dependencies
+
+Install all dependencies for both frontend and backend:
+```bash
+# In the root repository directory:
+npm run install:all
+
+# Or separately:
+cd client && npm install
+cd ../server && npm install
+```
+
+### 3. Run Locally
+
+#### Start Frontend (Client)
+```bash
+cd client
+npm run dev
+```
+> The web app will be live at: **`http://localhost:5173`**
+
+#### Start Backend (Server)
+```bash
+cd server
+npm run dev
+```
+> The API server will be live at: **`http://localhost:5000`**
+> API Health check: **`http://localhost:5000/api/health`**
+
+---
+
+## 🌐 Deploy to Vercel (Frontend)
+
+The frontend is ready for **1-click deployment on [Vercel](https://vercel.com/)**:
+
+1. Log in to [Vercel Dashboard](https://vercel.com/) and click **"Add New Project"**.
+2. Import your GitHub repository: `OLABS-HACKATHON-HEALTH-CARE-PROJECT`.
+3. In the project settings:
+   - **Root Directory**: Select `client`
+   - **Framework Preset**: `Vite`
+   - **Build Command**: `npm run build`
+   - **Output Directory**: `dist`
+4. Add **Environment Variables** in Vercel:
+   - `VITE_API_URL`: `https://your-backend-service.onrender.com` (your deployed backend URL)
+   - `VITE_OPENROUTER_KEY`: *(Optional)* Your OpenRouter API key
+5. Click **Deploy**. Vercel will automatically build and host your application with global CDN caching and SSL.
+
+---
+
+## ⚡ Deploy to Render (Backend)
+
+The backend is configured for **[Render](https://render.com/) Web Service**:
+
+1. Log in to [Render Dashboard](https://dashboard.render.com/) and click **"New Web Service"**.
+2. Connect your GitHub repository.
+3. Configure the following settings:
+   - **Root Directory**: `server`
+   - **Runtime**: `Node`
+   - **Build Command**: `npm install`
+   - **Start Command**: `npm start`
+4. In the **Environment Variables** tab, add:
+   - `PORT`: `10000`
+   - `NODE_ENV`: `production`
+   - `MONGODB_URI`: `mongodb+srv://<user>:<password>@cluster.mongodb.net/healthtracker?retryWrites=true&w=majority` (or MongoDB Atlas connection string)
+   - `CLIENT_ORIGIN`: `https://your-frontend.vercel.app` (your Vercel frontend URL)
+   - `OPENROUTER_API_KEY`: *(Optional)* Your OpenRouter API key
+5. Click **Create Web Service**. Render will deploy the API and assign an HTTPS endpoint.
+
+---
+
+## ✨ Features
+
+- 🤖 **MEDICO AI ChatBot**: Embedded interactive AI health assistant powered by Google Gemini & OpenRouter.
+- 🥗 **Smart Diet Plan Generator**: Automatic meal plan calculation based on daily budget and calorie targets.
+- 📷 **Live Food Scanner**: Nutrition recognition with live camera stream for calorie and protein computation.
+- 🚶 **Step Counter & History**: Step goal tracking with weekly average statistics.
+- 🎯 **Gamified Goals & Rewards**: Earn points for completing daily health goals and redeem exclusive rewards.
+- 🚨 **Emergency SOS Button**: One-tap emergency alert trigger.
+- 👤 **Health Profile & BMI**: Live BMI calculation with weight management indicators and Dark Mode support.
+
+---
+
+## 📜 License
+This project is licensed under the MIT License.

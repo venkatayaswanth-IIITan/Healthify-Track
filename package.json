@@ -1,0 +1,27 @@
+{
+  "name": "health-tracker-monorepo",
+  "version": "1.0.0",
+  "description": "Health Tracker Platform - Client and Server",
+  "private": true,
+  "scripts": {
+    "dev": "npm run client:dev",
+    "client:dev": "npm --prefix client run dev",
+    "client:build": "npm --prefix client run build",
+    "client:install": "npm --prefix client install",
+    "server:dev": "npm --prefix server run dev",
+    "server:start": "npm --prefix server start",
+    "server:install": "npm --prefix server install",
+    "install:all": "npm run client:install && npm run server:install"
+  },
+  "keywords": [
+    "health",
+    "tracker",
+    "react",
+    "vite",
+    "express",
+    "mongodb",
+    "ai"
+  ],
+  "author": "",
+  "license": "MIT"
+}
