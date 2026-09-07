@@ -1,5 +1,12 @@
 # 🏥 HealthTrack — Full Stack Healthcare Platform
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![React](https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=black)](https://react.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.5-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Vite](https://img.shields.io/badge/Vite-5.4-646CFF?logo=vite&logoColor=white)](https://vitejs.dev/)
+[![Node.js](https://img.shields.io/badge/Node.js-18+-339933?logo=node.js&logoColor=white)](https://nodejs.org/)
+[![MongoDB](https://img.shields.io/badge/MongoDB-Atlas-47A248?logo=mongodb&logoColor=white)](https://www.mongodb.com/)
+
 A modern, AI-powered full-stack health and wellness tracking platform built with **React (TypeScript + Vite + Tailwind CSS)** and **Node.js (Express + MongoDB)**.
 
 ---
@@ -8,6 +15,11 @@ A modern, AI-powered full-stack health and wellness tracking platform built with
 
 ```
 OLABS-HACKATHON-HEALTH-CARE-PROJECT/
+├── .github/                    # 🤖 GitHub Community Standards & Templates
+│   ├── ISSUE_TEMPLATE/         # Bug report & feature request templates
+│   ├── pull_request_template.md# PR review checklist template
+│   └── dependabot.yml          # Automated weekly dependency updates
+│
 ├── client/                     # 🎨 Frontend Web Application (React + Vite)
 │   ├── src/
 │   │   ├── components/         # Modular React components
@@ -38,6 +50,8 @@ OLABS-HACKATHON-HEALTH-CARE-PROJECT/
 │   ├── package.json            # Backend dependencies
 │   └── .env.example            # Server environment variables template
 │
+├── CONTRIBUTING.md             # Contribution guidelines
+├── LICENSE                     # MIT License
 ├── package.json                # Unified monorepo scripts
 ├── .gitignore                  # Global Git ignore rules
 └── README.md                   # Documentation & Deployment Guide
