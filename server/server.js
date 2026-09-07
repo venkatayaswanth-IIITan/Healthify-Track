@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
+const path = require('path');
 require('dotenv').config();
 
 const authRoutes = require('./routes/authRoutes');
@@ -11,26 +12,17 @@ const PORT = process.env.PORT || 5000;
 
 // Middlewares
 app.use(cors({
-  origin: '*', // Allow all origins for seamless development & cross-deployment
+  origin: '*',
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization']
 }));
 app.use(express.json());
 
-// Routes
+// API Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/ai', aiRoutes);
 
-// Health check endpoint (for Render / uptime monitors)
-app.get('/', (req, res) => {
-  res.json({
-    status: 'online',
-    service: 'HealthTrack Backend API',
-    version: '1.0.0',
-    mongodb: mongoose.connection.readyState === 1 ? 'connected' : 'disconnected'
-  });
-});
-
+// Health check endpoint
 app.get('/api/health', (req, res) => {
   res.json({
     status: 'healthy',
@@ -51,6 +43,30 @@ mongoose.connect(MONGODB_URI, {
 })
 .catch((err) => {
   console.warn('⚠️ MongoDB connection warning (running in standalone mode):', err.message);
+});
+
+// ----------------------------------------------------
+// AWS EC2 / Single Server All-in-One Deployment Support:
+// Serve built static frontend from client/dist if present
+// ----------------------------------------------------
+const clientDistPath = path.join(__dirname, '../client/dist');
+app.use(express.static(clientDistPath));
+
+app.get('*', (req, res, next) => {
+  // If request is not an API call, serve client index.html (SPA support)
+  if (!req.path.startsWith('/api')) {
+    return res.sendFile(path.join(clientDistPath, 'index.html'), (err) => {
+      if (err) {
+        res.json({
+          status: 'online',
+          service: 'HealthTrack Backend API',
+          version: '1.0.0',
+          message: 'Frontend dist not found. Run "npm run client:build" to build client.'
+        });
+      }
+    });
+  }
+  next();
 });
 
 // Start Server
